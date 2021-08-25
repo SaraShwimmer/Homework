@@ -102,13 +102,13 @@ public:
 	void reset(){
 		//обнуление индексов массива
 		m_length = 0;
-		for (int i = 0; i < 9; i ++) {
+		for (int i = 0; i < SIZE; i ++) {
 			m_array[i] = 0;
 		}
 	}
 	bool push(int x){
 		//Если массив заполнен, то возвращает значение false
-		if (m_length == 10)
+		if (m_length == SIZE)
 			return false;
 		//Присваиваем элементу значение и переходим к следующему
 		m_array[m_length++] = x;
