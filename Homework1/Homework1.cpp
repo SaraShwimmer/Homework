@@ -57,30 +57,30 @@ int main()
 Создать конструктор со списком инициализации членов, который позволит пользователю передавать значения для m_red, m_blue, m_green и m_alpha.
 Написать функцию print(), которая будет выводить значения переменных-членов.*/
 
-//class RGBA {
-//private:
-//	//Объявление переменных-члена типа uint8_t
-//	uint8_t m_red, m_green, m_blue, m_alpha;
-//public: 
-//	//Создание конструктора со списком инициализации членов
-//	RGBA(uint8_t red = 0, uint8_t green = 0, uint8_t blue = 0, uint8_t alpha = 255) :
-//		m_red(red), m_green(green), m_blue(blue), m_alpha(alpha) {};
-//	//Вывод значения переменных-членов с изменением типа для корректного вывода
-//	void print() {
-//		cout << "Значение RGBA:\nR - " << static_cast<int>(m_red) << "\nG - " << static_cast<int>(m_green) << "\nB - " <<
-//			static_cast<int>(m_blue) << "\nA - " << static_cast<int>(m_alpha);
-//	}
-//
-//};
-//
-//int main() {
-//	setlocale(LC_ALL, "Russian");
-//	//Передаем значения переменных-членов
-//	RGBA rgba(17, 15, 255, 42);
-//	////Вывод значения переменных-членов
-//	rgba.print();
-//	return 0;
-//}
+class RGBA {
+private:
+	//Объявление переменных-члена типа uint8_t
+	uint8_t m_red, m_green, m_blue, m_alpha;
+public: 
+	//Создание конструктора со списком инициализации членов
+	RGBA(uint8_t red = 0, uint8_t green = 0, uint8_t blue = 0, uint8_t alpha = 255) :
+		m_red(red), m_green(green), m_blue(blue), m_alpha(alpha) {};
+	//Вывод значения переменных-членов с изменением типа для корректного вывода
+	void print() {
+		cout << "Значение RGBA:\nR - " << static_cast<int>(m_red) << "\nG - " << static_cast<int>(m_green) << "\nB - " <<
+			static_cast<int>(m_blue) << "\nA - " << static_cast<int>(m_alpha);
+	}
+
+};
+
+int main() {
+	setlocale(LC_ALL, "Russian");
+	//Передаем значения переменных-членов
+	RGBA rgba(17, 15, 255, 42);
+	////Вывод значения переменных-членов
+	rgba.print();
+	return 0;
+}
 
 //Задание 3
 
@@ -92,67 +92,67 @@ public-метод с именем push(), который будет добавл
 public-метод с именем pop() для вытягивания и возврата значения из стека. Если в стеке нет значений, то должно выводиться предупреждение;
 public-метод с именем print(), который будет выводить все значения стека.*/
 
-//class Stack{
-//private:
-//	static const int SIZE = 10;
-//	int m_array[SIZE]; //объявление и инициализация массива
-//    int m_length;    //индекс массива
-//
-//public:
-//	void reset(){
-//		//обнуление индексов массива
-//		m_length = 0;
-//		for (int i = 0; i < 9; i ++) {
-//			m_array[i] = 0;
-//		}
-//	}
-//	bool push(int x){
-//		//Если массив заполнен, то возвращает значение false
-//		if (m_length == 10)
-//			return false;
-//		//Присваиваем элементу значение и переходим к следующему
-//		m_array[m_length++] = x;
-//		//        return true;
-//	}
-//	int pop(){
-//		//если в массиве нет элементов
-//        assert(m_length > 0);
-//
-//        //int index = m_array[m_length-1]; // получаем последний элемент со значением
-//        //--m_length; // m_next теперь на единицу меньше, так как мы только что вытянули верхний элемент стека
-//        //return index; // возвращаем элемент
-//        //Или
-//        return m_array[--m_length];
-//	}
-//	void print(){
-//		cout << "( ";
-//		        //посимвольный вывод массива в консоль
-//		        for (int i = 0; i < m_length; i++)
-//		            cout << m_array[i] << ' ';
-//		        cout << ")\n";
-//	}
-//};
-//
-//int main()
-//{
-//	Stack stack;
-//	stack.reset();
-//	stack.print();
-//
-//	stack.push(3);
-//	stack.push(7);
-//	stack.push(5);
-//	stack.print();
-//
-//	stack.pop();
-//	stack.print();
-//
-//	stack.pop();
-//	stack.pop();
-//	stack.print();
-//
-//	return 0;
-//}
+class Stack{
+private:
+	static const int SIZE = 10;
+	int m_array[SIZE]; //объявление и инициализация массива
+    int m_length;    //индекс массива
+
+public:
+	void reset(){
+		//обнуление индексов массива
+		m_length = 0;
+		for (int i = 0; i < 9; i ++) {
+			m_array[i] = 0;
+		}
+	}
+	bool push(int x){
+		//Если массив заполнен, то возвращает значение false
+		if (m_length == 10)
+			return false;
+		//Присваиваем элементу значение и переходим к следующему
+		m_array[m_length++] = x;
+		//        return true;
+	}
+	int pop(){
+		//если в массиве нет элементов
+        assert(m_length > 0);
+
+        //int index = m_array[m_length-1]; // получаем последний элемент со значением
+        //--m_length; // m_next теперь на единицу меньше, так как мы только что вытянули верхний элемент стека
+        //return index; // возвращаем элемент
+        //Или
+        return m_array[--m_length];
+	}
+	void print(){
+		cout << "( ";
+		        //посимвольный вывод массива в консоль
+		        for (int i = 0; i < m_length; i++)
+		            cout << m_array[i] << ' ';
+		        cout << ")\n";
+	}
+};
+
+int main()
+{
+	Stack stack;
+	stack.reset();
+	stack.print();
+
+	stack.push(3);
+	stack.push(7);
+	stack.push(5);
+	stack.print();
+
+	stack.pop();
+	stack.print();
+
+	stack.pop();
+	stack.pop();
+	stack.print();
+
+	return 0;
+}
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
 // Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
